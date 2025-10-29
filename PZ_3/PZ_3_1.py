@@ -1,22 +1,11 @@
 #Проверить истинность высказывания: «Среди трех данных целых чисел есть хотя бы
-#одна пара взаимно противоположных».
-def has_opposite_pair(numbers):
-
-    try:
-        return (numbers[0] == -numbers[1] or
-                numbers[0] == -numbers[2] or
-                numbers[1] == -numbers[2])
-    except (IndexError, TypeError):
-        return False
-
+# одна пара взаимно противоположных».
 try:
     a = int(input("Введите первое целое число: "))
     b = int(input("Введите второе целое число: "))
     c = int(input("Введите третье целое число: "))
 
-    numbers = [a, b, c]
-
-    result = has_opposite_pair(numbers)
+    result = a == -b or a == -c or b == -c
 
     print(f"Среди чисел {a}, {b}, {c} есть пара взаимно противоположных: {result}")
 

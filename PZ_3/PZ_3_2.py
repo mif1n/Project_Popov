@@ -3,14 +3,7 @@ try:
     num1 = float(input("Введите первое число: "))
     num2 = float(input("Введите второе число: "))
 
-    if num1 >= num2:
-        larger, smaller = num1, num2
-    else:
-        larger, smaller = num2, num1
-
-    print(f"{larger} {smaller}")
+    print(f"{max(num1, num2)} {min(num1, num2)}")
 
 except ValueError:
     print("Ошибка: необходимо вводить числа")
-except Exception as e:
-    print(f"Произошла непредвиденная ошибка: {e}")
