@@ -1,11 +1,21 @@
 # Дан список размера N и целые числа K и L (1 < K < L < N). Найти среднее
 # арифметическое элементов список с номерами от K до L включительно.
-lst = [2, 5, 8, 10, 15, 20, 25, 30, 35, 40]
-K = 3
-L = 7
-# Берем элементы с K до L
-elements = lst[K-1:L]
-# Считаем среднее
-avg = sum(elements) / len(elements)
+import random
 
-print(f"Среднее: {avg}")
+N = int(input("Введите размер списка N: "))
+
+numbers = [random.randint(1, 100) for _ in range(N)]
+
+K = int(input("Введите K: "))
+L = int(input("Введите L: "))
+
+if not (1 < K < L < N):
+    print("Ошибка: должно быть 1 < K < L < N")
+else:
+    selected = numbers[K - 1:L]
+
+    average = sum(selected) / len(selected)
+
+    print(f"\nСлучайный список: {numbers}")
+    print(f"Элементы с {K} по {L}: {selected}")
+    print(f"Среднее арифметическое: {average:.2f}")

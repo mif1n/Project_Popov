@@ -1,18 +1,28 @@
 # Дан список размера N, все элементы которого, кроме одного, упорядочены по
 # убыванию. Сделать список упорядоченным, переместив элемент, нарушающий
 # упорядоченность, на новую позицию.
-lst = [10, 8, 7, 5, 9, 4, 3, 2, 1]
+import random
 
-print(f"Исходный: {lst}")
+N = int(input("Введите размер списка N: "))
+sorted_list = sorted([random.randint(1, 100) for _ in range(N)], reverse=True)
 
-for i in range(1, len(lst)):
-    if lst[i] > lst[i - 1]:
-        wrong = lst.pop(i)
+if N > 1:
+    element = sorted_list.pop(random.randint(0, N-1))
+    insert_pos = random.randint(1, N-2)  # Не в начало и не в конец
+    sorted_list.insert(insert_pos, element)
 
-        for j in range(len(lst)):
-            if wrong > lst[j]:
-                lst.insert(j, wrong)
+print(f"\nИсходный список (с одним нарушением): {sorted_list}")
+
+for i in range(1, len(sorted_list)):
+    if sorted_list[i] > sorted_list[i-1]:
+        wrong = sorted_list.pop(i)
+
+        for j in range(len(sorted_list)):
+            if wrong > sorted_list[j]:
+                sorted_list.insert(j, wrong)
                 break
+        else:
+            sorted_list.append(wrong)
         break
 
-print(f"Исправленный: {lst}")
+print(f"Исправленный список: {sorted_list}")
