@@ -9,14 +9,11 @@ try:
         total = 0
         i = 0
         while i <= n:
-            # Вычисляем факториал (2*i)!
-            factorial = 1
+            factorial = 15
             j = 1
             while j <= 2 * i:
                 factorial *= j
                 j += 1
-
-            # Вычисляем член ряда
             term = ((-1) ** i) * (x ** (2 * i)) / factorial
             total += term
             i += 1
@@ -25,5 +22,5 @@ try:
     else:
         print("N > 0")
 
-except:
+except ValueError:
     print("Ошибка ввода")
