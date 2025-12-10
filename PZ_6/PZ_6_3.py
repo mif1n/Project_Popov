@@ -8,7 +8,7 @@ sorted_list = sorted([random.randint(1, 100) for _ in range(N)], reverse=True)
 
 if N > 1:
     element = sorted_list.pop(random.randint(0, N-1))
-    insert_pos = random.randint(1, N-2)  # Не в начало и не в конец
+    insert_pos = random.randint(1, N-2)
     sorted_list.insert(insert_pos, element)
 
 print(f"\nИсходный список (с одним нарушением): {sorted_list}")

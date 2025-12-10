@@ -6,7 +6,7 @@
 
 text = "МИНИМУМ   МАТЕМАТИКА   ПРОГРАММИРОВАНИЕ"
 
-words = text.split(' ')  # ['МИНИМУМ', '', '', 'МАТЕМАТИКА', '', '', 'ПРОГРАММИРОВАНИЕ']
+words = text.split(' ')
 
 result_words = []
 for word in words:
