@@ -1,20 +1,18 @@
 # Дано целое положительное число. Вывести символы, изображающие цифры этого
 # числа (в порядке слева направо).
+def textp(sentence):
+    words = sentence.split()
+    result = []
 
-import random
+    for word in words:
+        if len(word) >= 5:
+            result.append(word[::-1])
+        else:
+            result.append(word)
 
-try:
-    number = int(input("Введите целое положительное число: "))
+    return " ".join(result)
 
-    if number <= 0:
-        print("Число должно быть положительным!")
-    else:
-        num_str = str(number)
+text = input("Введите строку: ")
 
-        print(f"\nИсходное число: {number}")
-        print("Цифры числа (слева направо):")
-        for digit in num_str:
-            print(digit)
-
-except ValueError:
-    print("Ошибка: введите целое число!")
+result = textp(text)
+print("Результат:", result)
