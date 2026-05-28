@@ -1,25 +1,28 @@
-#В матрице найти минимальный и максимальные элементы.
-
-from functools import reduce
-
-matrix = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
-
-def find_min_max(matrix):
-    flat_list = reduce(lambda acc, row: acc + row, matrix, [])
-
-    min_max = reduce(
-        lambda acc, val: (min(acc[0], val), max(acc[1], val)),
-        flat_list,
-        (flat_list[0], flat_list[0])
-    )
-
-    return min_max
+# В матрице найти минимальный и максимальный элементы
+import random
 
 
-min_val, max_val = find_min_max(matrix)
-print(f"Минимальный элемент: {min_val}")
-print(f"Максимальный элемент: {max_val}")
+def main():
+    try:
+        rows = int(input("Введите количество строк: "))
+        cols = int(input("Введите количество столбцов: "))
+
+        # Генерация матрицы через списковое включение
+        matrix = [[random.randint(-20, 30) for _ in range(cols)] for _ in range(rows)]
+
+        print("\nИсходная матрица:")
+        for row in matrix:
+            print(row)
+
+        # Списковое включение для получения всех элементов матрицы в плоский список
+        flat_elements = [x for row in matrix for x in row]
+
+        print(f"\nМинимальный элемент: {min(flat_elements)}")
+        print(f"Максимальный элемент: {max(flat_elements)}")
+
+    except ValueError:
+        print("\nОшибка ввода: пожалуйста, введите целые числа.")
+
+
+if __name__ == "__main__":
+    main()
