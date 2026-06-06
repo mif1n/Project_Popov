@@ -17,10 +17,8 @@ def calculate_sets():
     some_countries = spain | honduras | usa  # Объединение - в некоторые страны
     not_exported = all_cars - some_countries  # Разность - не доставлены ни в одну
 
-    # Очистка результата
     result_text.delete('1.0', END)
 
-    # Вывод результатов
     result_text.insert(END, "=== РЕЗУЛЬТАТЫ ===\n\n")
     result_text.insert(END, f"Все марки машин: {all_cars}\n\n")
     result_text.insert(END, f"Завезены во ВСЕ страны:\n{all_countries}\n\n")
@@ -38,15 +36,12 @@ root = Tk()
 root.title("Работа с множествами - марки машин")
 root.geometry("700x500")
 
-# Заголовок
 title_label = Label(root, text="Экспорт марок машин в страны", font=("Arial", 14, "bold"))
 title_label.pack(pady=10)
 
-# Основной фрейм
 main_frame = Frame(root)
 main_frame.pack(padx=20, pady=10, fill=BOTH, expand=True)
 
-# Фрейм с исходными данными
 data_frame = LabelFrame(main_frame, text="Исходные данные", padx=10, pady=10)
 data_frame.pack(fill=X, pady=5)
 
@@ -63,7 +58,6 @@ honduras_label.pack(anchor="w", pady=2)
 usa_label = Label(data_frame, text="USA: {'zig', 'vaz'}", font=("Courier", 10))
 usa_label.pack(anchor="w", pady=2)
 
-# Фрейм с кнопками
 buttons_frame = Frame(main_frame)
 buttons_frame.pack(pady=10)
 
@@ -73,17 +67,14 @@ calc_button.pack(side=LEFT, padx=10)
 clear_button = Button(buttons_frame, text="Очистить", command=clear_result, width=20)
 clear_button.pack(side=LEFT, padx=10)
 
-# Фрейм с результатом
 result_frame = LabelFrame(main_frame, text="Результат", padx=10, pady=10)
 result_frame.pack(fill=BOTH, expand=True, pady=5)
 
 result_text = Text(result_frame, width=70, height=12, font=("Courier", 11))
 result_text.pack(fill=BOTH, expand=True)
 
-# Пояснение
 info_label = Label(main_frame, text="Нажмите 'Выполнить расчет' для получения результатов",
                    fg="gray", font=("Arial", 9))
 info_label.pack(pady=5)
 
-# Запуск главного цикла
 root.mainloop()

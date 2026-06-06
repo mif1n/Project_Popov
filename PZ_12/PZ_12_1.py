@@ -1,27 +1,21 @@
-# В матрице найти сумму элементов первых двух строк
-import random
+class Employee:
+    def __init__(self, surname, position, salary):
+        self.surname = surname
+        self.position = position
+        self.salary = salary
 
+class Squad:
+    def __init__(self):
+        self.employees = [
+            Employee("Иванов", "Менеджер", 50000),
+            Employee("Петров", "Разработчик", 80000),
+            Employee("Сидоров", "Дизайнер", 60000),
+            Employee("Козлов", "Тестировщик", 55000)
+        ]
 
-def main():
-    try:
-        rows = int(input("Введите количество строк: "))
-        cols = int(input("Введите количество столбцов: "))
+    def print_salaries(self):
+        for emp in self.employees:
+            print(f"{emp.surname}: {emp.salary}")
 
-        # Генерация матрицы через списковое включение
-        matrix = [[random.randint(-20, 30) for _ in range(cols)] for _ in range(rows)]
-
-        print("\nИсходная матрица:")
-        for row in matrix:
-            print(row)
-
-        # Генераторное выражение для ленивого вычисления суммы первых двух строк
-        limit = 2 if rows >= 2 else rows
-        sum_first_two = sum(x for row in matrix[:limit] for x in row)
-        print(f"\nСумма элементов первых двух строк: {sum_first_two}")
-
-    except ValueError:
-        print("\nОшибка ввода: пожалуйста, введите целые числа.")
-
-
-if __name__ == "__main__":
-    main()
+squad = Squad()
+squad.print_salaries()
