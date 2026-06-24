@@ -46,7 +46,6 @@ def main():
             cur.execute("UPDATE notary_services SET deal_sum = deal_sum - 2000 WHERE commission < 2500")
             print("3. Сумма сделки уменьшена на 2000 при комиссии < 2500")
 
-            # 3. Удаление (3 запроса)
             print("\n=== 3. УДАЛЕНИЕ ===")
             cur.execute("DELETE FROM notary_services WHERE deal_sum < 10000")
             print("1. Удалены записи с суммой сделки < 10000")
